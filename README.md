@@ -2,9 +2,10 @@
 
 ## 狀態
 
-目前版本為《全前端版》，之後會加入 Koa Server 與 MongoDB 儲存資料。
+目前版本為《全端版》，已導入 Koa Server 架構並將 MongoDB 封裝以便實例化使用。</br>
+目前index.html為首頁，並能使用右上角 註冊與登入功能 進行資料庫操弄。
 
 ## 使用
 
-目前沒有用 server, 是單機雛形，請直接打開 index.html 就能使用。
+請直接node app.js就能使用。
 
