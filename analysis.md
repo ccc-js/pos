@@ -23,8 +23,9 @@
 
 ## 使用個案 User Story
 
-* [UserSignup.js](UserSignup.js) -- 使用者註冊帳號，然後登入。
-* [ShopCreater.js](ShopCreater.js) -- 經營者創立商店 (ccc, 20191204)
-* [ShopEmployee.js](ShopEmployee.js) -- 商店自己輸入訂單
-* [Buyer.js](Buyer.js) -- 購物者搜尋商店，然後訂購物品
-* [MobileBuyer.js](MobileBuyer.js) -- 使用手機尋找附近商店
+* [UserTest.js](test/server/UserTest.js) -- 使用者註冊帳號，然後登入。
+* [ShopCreater.js](test/server/ShopCreater.js) -- 經營者創立商店 (ccc, 20191204)
+* [ShopEmployee.js](test/server/ShopEmployee.js) -- 商店自己輸入訂單
+* [MarketSearch.js](test/server/MarketSearch.js) -- 選擇區域後查詢該區域的商店列表。
+* [Buyer.js](test/server/Buyer.js) -- 購物者搜尋商店，然後訂購物品
+* [MobileBuyer.js](test/server/MobileBuyer.js) -- 使用手機尋找附近商店
