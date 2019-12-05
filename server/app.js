@@ -26,9 +26,10 @@ app.use(router.routes())
 
 app.start = async function () { return await M.open() }
 app.stop = async function () { return await M.close() }
+app.clear = async function () { return await M.clear() } 
 
 async function main() {
-  await M.open()
+  await app.start() // M.open()
   app.listen(3000)
   console.log('Server run at http://localhost:3000')
 }

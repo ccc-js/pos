@@ -3,6 +3,7 @@ const M = require('../../server/model')
 describe('POS Model 測試', function() {
   before(async function() {
     await M.open()
+    await M.clear()
   })
   after(async function () {
     await M.close()

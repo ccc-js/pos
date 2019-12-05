@@ -9,13 +9,13 @@ const dbName = 'pos'
 M.open = async function () {
   M.client = await MongoClient.connect(url, {useUnifiedTopology: true, useNewUrlParser: true})
   M.db = await M.client.db(dbName)
-  M.users = await M.db.collection('users')
-  M.shops = await M.db.collection('shops')
 }
 
 M.clear = async function () {
-  await M.users.drop()
-  await M.shops.drop()
+  await M.db.collection('users').remove({})
+  await M.db.collection('shops').remove({})
+  // await M.users.drop()
+  // await M.shops.drop()
 }
 
 M.close = async function () {
@@ -37,25 +37,3 @@ M.findOne = async function (table, query) {
 M.find = async function (table, query) {
   return await M.db.collection(table).find(query)
 }
-
-/*
-
-M.add = async function (post) {
-  post.created_at = new Date()
-  let r = await posts.insertOne(post)
-  post._id = r.insertedId
- return post
-}
-
-M.get = async function (id) {
-  let post = await posts.findOne({_id:new ObjectID(id)})
-  // console.log('get: post=', post)
-  return post
-}
-
-M.list = async function () {
-  var postList = await posts.find({}).sort({ created_at: -1 }).toArray()
-  // console.log('postList = ', postList)
-  return postList
-}
-*/
