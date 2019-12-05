@@ -26,6 +26,10 @@ M.insertOne = async function (table, obj) {
   return await M.db.collection(table).insertOne(obj)
 }
 
+M.deleteMany = async function (table, query) {
+  return await M.db.collection(table).deleteMany(query)
+}
+
 M.findOne = async function (table, query) {
   return await M.db.collection(table).findOne(query)
 }

@@ -1,10 +1,13 @@
 # 家庭式 Pos 開店結帳系統
 
-## 狀態
+## 使用方式
 
-目前版本為《全前端版》，之後會加入 Koa Server 與 MongoDB 儲存資料。
+1. 前端 -- 直接打開 [public/index.html](public/index.html) 就能使用。
+2. 後端 -- 目前可以用 test/server 中的測試案例 [進行測試](test.md)) 。
 
-## 使用
+## 開發者請閱讀
 
-目前沒有用 server, 是單機雛形，請直接打開 index.html 就能使用。
+* [開發者須知](developer.md)
+* [POS 專案的系統分析](analysis.md)
+* [目前的測試結果](test.md)
 

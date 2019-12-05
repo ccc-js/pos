@@ -2,39 +2,33 @@ const User = module.exports = {}
 const M = require('./model')
 
 User.signup = async function(ctx) {
-  console.log('ctx.request=', ctx.request)
-  console.log('ctx.request.body=', ctx.request.body)
   const user = ctx.request.body
-  // 加了下列兩行，會導致測試錯誤！"after all" hook:     Uncaught Error: expected 200 "OK", got 500 "Internal Server Error"
   let dbUser = await M.findOne('users', {uid:user.uid})
-  console.log('dbUser=', dbUser)
-  
-  console.log('user=', user)
-  let r = await M.insertOne('users', user)
-  /*
-  let dbUser = await db.findOne({uid:user.uid})
-  console.log('dbUser=', dbUser)
-  if (dbUser.)
-  user.signup_at = new Date()
-  let r = await users.insertOne(user)
-  user._id = r.insertedId
-  ctx.status = 200
-  */
-  // ctx.type = 'application/json'
-  ctx.status = 200
-  // ctx.body = r // { user: user, op: 'signup', result:'success!' }
-  ctx.body = 'OK!'
+  if (dbUser == null) { // 該 uid 的使用者不存在，可以使用該名稱註冊
+    let r = await M.insertOne('users', user)
+    ctx.status = 200
+    ctx.body = 'OK!'
+  } else { // 該 uid 的使用者已經存在，無法使用該 uid 註冊
+    ctx.status = 400
+    ctx.body = 'Error: User already exist'
+  }
 }
 
 User.login = async function(ctx) {
-  /*
-  let user = ctx.request.user
-  let dbUser = await users.findOne({uid:user.uid})
-  console.log('dbUser=dbUser')
-  return dbUser
-  */
+  const user = ctx.request.body
+  let dbUser = await M.findOne('users', {uid:user.uid})
+  if (dbUser != null && dbUser.password === user.password) { // 帳號密碼正確，登入成功！
+    ctx.status = 200
+    ctx.body = 'OK!'
+    ctx.session.user = user.uid
+  } else { // 帳號密碼錯誤，登入失敗！
+    ctx.status = 400
+    ctx.body = 'Error: login fail!'
+  }
 }
 
 User.logout = async function(ctx) {
-
+  delete ctx.session.user
+  ctx.status = 200
+  ctx.body = 'OK!'
 }

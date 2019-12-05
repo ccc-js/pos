@@ -6,10 +6,19 @@ const router = require('./router')
 const logger = require('koa-logger')
 const koaBody = require('koa-body')
 const koaJson = require('koa-json')
+const session = require('koa-session')
 
 const Koa = require('koa')
 const app = module.exports = new Koa()
 
+app.keys = ['adfjjhvlkjafdjaf'];
+
+const CONFIG = {
+  key: 'ejkladsjflakfj', /** (string) cookie key (default is koa:sess) */
+  maxAge: 86400000,
+}
+
+app.use(session(CONFIG, app))
 app.use(logger())
 app.use(koaBody())
 app.use(koaJson())

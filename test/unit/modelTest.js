@@ -1,4 +1,4 @@
-const M = require('../server/model')
+const M = require('../../server/model')
 
 describe('POS Model 測試', function() {
   before(async function() {
@@ -8,9 +8,12 @@ describe('POS Model 測試', function() {
     await M.close()
   })
 
-  describe('', function() {
-    it('新增使用者', async function() {
+  describe('使用者 CURD', function() {
+    it('新增 snoopy', async function() {
       await M.insertOne('users', {uid:'snoopy', password:'123'})
+    })
+    it('刪除 snoopy', async function() {
+      await M.deleteMany('users', {uid:'snoopy'})
     })
   })
 })
