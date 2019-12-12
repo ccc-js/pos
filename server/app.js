@@ -7,6 +7,7 @@ const logger = require('koa-logger')
 const koaBody = require('koa-body')
 const koaJson = require('koa-json')
 const session = require('koa-session')
+// const koaStatic = require('koa-json')
 
 const Koa = require('koa')
 const app = module.exports = new Koa()
@@ -23,6 +24,8 @@ app.use(logger())
 app.use(koaBody())
 app.use(koaJson())
 app.use(router.routes())
+// Koa-static 和 koa-router 不能搭配使用 -- https://github.com/ZijianHe/koa-router/issues/446
+// app.use(koaStatic(__dirname + '/public'))
 
 app.start = async function () { return await M.open() }
 app.stop = async function () { return await M.close() }
