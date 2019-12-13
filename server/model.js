@@ -14,6 +14,7 @@ M.open = async function () {
 M.clear = async function () {
   await M.db.collection('users').remove({})
   await M.db.collection('shops').remove({})
+  await M.db.collection('orders').remove({})
   // await M.users.drop()
   // await M.shops.drop()
 }

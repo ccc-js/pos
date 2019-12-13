@@ -3,11 +3,10 @@ const Shop = module.exports = {}
 const M = require('./model')
 
 Shop.create = async function(ctx) {
-
-}
-
-Shop.order = async function(ctx) {
-
+  const shop = ctx.request.body
+  let r = await M.insertOne('shops', shop)
+  ctx.status = 200
+  ctx.body = {id: r.insertedId}
 }
 
 Shop.report = async function(ctx) {

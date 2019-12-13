@@ -1,44 +1,41 @@
 ## POS 系統目前測試結果
 
 ```
-PS D:\ccc\code\js\pos> npm run test
-npm WARN npm npm does not support Node.js v10.16.0
-npm WARN npm You should probably upgrade to a newer version of node as we
-npm WARN npm can't make any promises that npm will work with this version.
-npm WARN npm Supported releases of Node.js are the latest release of 4, 6, 7, 8, 9.
-npm WARN npm You can find the latest version at https://nodejs.org/
-
-> pos@0.0.1 test D:\ccc\code\js\pos
-> mocha test/**/*.js
+PS D:\ccc\code\js\pos> mocha test/server/FullStory.js
 
 
-
-  POS 商場搜尋
-
-      √ 新增商店
-      √ 列出所有商店
-      √ 刪除所有商店
-
-  POS 使用者《註冊/登入/登出》
-
+  POS 使用者
+(node:7448) DeprecationWarning: collection.remove is deprecated. Use deleteOne, deleteMany, or bulkWrite instead.
+    註冊
   <-- POST /user/signup
-  --> POST /user/signup 200 126ms 3b
-      √ 註冊新帳戶，應該成功！ (191ms)
+  --> POST /user/signup 200 127ms 3b
+      √ signup: 註冊新帳戶，應該成功！ (201ms)
   <-- POST /user/signup
-  --> POST /user/signup 400 10ms 25b
-      √ 註冊第二次，應該失敗！
+  --> POST /user/signup 400 12ms 25b
+      √ signup: 註冊第二次，應該失敗！
+  <-- POST /user/signup
+  --> POST /user/signup 200 9ms 3b
+      √ signup: ccc 註冊新帳戶，應該成功！
+    登入
+  <-- POST /user/login
+  --> POST /user/login 400 7ms 18b
+      √ login: 已註冊使用者登入錯誤帳號密碼，應該失敗！
   <-- POST /user/login
   --> POST /user/login 200 17ms 3b
-      √ 已註冊使用者登入正確帳號密碼，應該成功！
+      √ login: 已註冊使用者登入正確帳號密碼，應該成功！
+    開店
+  <-- POST /shop/create
+  --> POST /shop/create 200 16ms 38b
+      √ shop/create: 已註冊使用者創建店面，應該成功！
+    訂購
+  <-- POST /order/create
+  --> POST /order/create 200 9ms 38b
+      √ order/create 已登入使用者訂購產品，應該成功！
+    登出
   <-- POST /user/login
   --> POST /user/login 400 6ms 18b
-      √ 已註冊使用者登入錯誤帳號密碼，應該失敗！
-
-  POS Model 測試
-    使用者 CURD
-      √ 新增 snoopy
-      √ 刪除 snoopy
+      √ logout : 已登入後登出應該會成功！
 
 
-  9 passing (4s)
+  8 passing (2s)
 ```
