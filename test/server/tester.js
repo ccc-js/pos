@@ -23,3 +23,7 @@ T.post = function (path, status, obj) {
 T.get = function (path, status) {
   return T.request.get(path).expect(status)
 }
+
+T.asObj = function (r) {
+  return JSON.parse(r.text)
+}

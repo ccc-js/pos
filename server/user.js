@@ -20,7 +20,8 @@ User.login = async function(ctx) {
   if (dbUser != null && dbUser.password === user.password) { // 帳號密碼正確，登入成功！
     ctx.status = 200
     ctx.body = 'OK!'
-    ctx.session.user = user.uid
+    ctx.session.user = {uid:user.uid}
+    console.log('session.user=', ctx.session.user)
   } else { // 帳號密碼錯誤，登入失敗！
     ctx.status = 400
     ctx.body = 'Error: login fail!'
