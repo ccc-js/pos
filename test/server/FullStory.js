@@ -63,8 +63,8 @@ describe('POS 使用者', function() {
     })
   })
   describe('ccc 查詢商店', function() {
-    it('shop.list : 應該可以查到 Snoopy之家', async () => {
-      let r = await T.post('/shop/list', 200, {
+    it('shop.read : 應該可以查到 Snoopy之家', async () => {
+      let r = await T.post('/shop/read', 200, {
         name: 'Snoopy之家'
       })
       let shops = T.asObj(r)

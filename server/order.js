@@ -15,3 +15,7 @@ Order.create = async function(ctx) {
     ctx.body = 'Error: 訂購失敗，沒有登入不能訂購!'
   }
 }
+
+Order.read = async function (ctx) {
+
+}

@@ -16,7 +16,7 @@ Shop.create = async function(ctx) {
   ctx.body = "Error: 創建商店失敗，沒有登入不能創建商店!"
 }
 
-Shop.list = async function(ctx) {
+Shop.read = async function(ctx) {
   const query = ctx.request.body
   let r = await M.read('shop', query)
   ctx.status = 200

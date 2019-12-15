@@ -23,8 +23,7 @@ router
   .post('/user/login', User.login) // 登入
   .post('/user/logout', User.logout) // 登出
   .post('/shop/create', Shop.create) // 開店
-  .post('/shop/setting', Shop.setting) // 設定: 可自訂商店產品
-  .post('/shop/list', Shop.list) // 開店
-  .post('/shop/report', Shop.report) // 商店訂單報表
+  .post('/shop/read', Shop.read) // 商店列表
   .post('/order/create', Order.create) // 訂購商品
+  .post('/order/read', Order.read) // 商店訂單報表
   .get('/public/(.*)', viewFile)
