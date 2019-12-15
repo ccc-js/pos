@@ -6,7 +6,6 @@ const logger = require('koa-logger')
 const koaBody = require('koa-body')
 const koaJson = require('koa-json')
 const session = require('koa-session')
-// const koaStatic = require('koa-json')
 
 const Koa = require('koa')
 const app = module.exports = new Koa()
@@ -37,5 +36,5 @@ async function main() {
 }
 
 if (!module.parent) {
-  main().catch(error=>console.log('error'))
+  main().catch(error=>console.log(error))
 }

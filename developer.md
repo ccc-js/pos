@@ -27,7 +27,7 @@
 
 ## Server API
 
-1. 使用 CURD + L 操作命名，但不使用 RESTful
+1. 使用 CURD + L 操作命名 (但不使用 RESTful) ， 而且全部都用 POST 方法
     * C: Create, U: Update, R: Read, D: Delete
     * L: List (可加查詢參數, ex: Shop.list(query))
 2. 除了 CURD 之外，可以使用《動作》命名方式

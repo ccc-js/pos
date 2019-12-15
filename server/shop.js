@@ -18,7 +18,7 @@ Shop.create = async function(ctx) {
 
 Shop.list = async function(ctx) {
   const query = ctx.request.body
-  let r = await M.list('shop', query)
+  let r = await M.read('shop', query)
   ctx.status = 200
   ctx.body = r
 }

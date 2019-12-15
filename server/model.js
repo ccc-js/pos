@@ -1,33 +1,45 @@
-const M = module.exports = require('./db')
+const M = module.exports = {}
+const db = require('./db')
+
+M.open = async function () {
+  return db.open()
+}
+
+M.close = async function () {
+  return db.close()
+}
 
 M.clear = async function () {
-  await M.db.collection('user').deleteMany({})
-  await M.db.collection('shop').deleteMany({})
-  await M.db.collection('order').deleteMany({})
+  await db.deleteMany('user', {})
+  await db.deleteMany('shop', {})
+  await db.deleteMany('order', {})
 }
 
 M.create = async function (table, record) {
-  let r = await M.db.collection(table).insertOne(record)
+  let r = await db.insertOne(table, record)
   return r.insertCount == 1
 }
 
-M.update = async function (table, record) {
-  let r = await M.db.collection(table).updateOne(record)
+M.update = async function (table, query, record) {
+  let r = await db.updateOne(table, query, record)
   return r.updateCount == 1
 }
 
-M.read = async function (table, id) {
-  let r = await M.db.collection(table).findOne({_id: id})
-  return r
-}
-
-M.delete = async function (table, id) {
-  let r = await M.db.collection(table).deleteOne({_id: id})
-  return r.deleteCount == 1
-}
-
-M.list = async function (table, query) {
-  let r = await M.db.collection(table).find(query)
+M.read = async function (table, query) {
+  let r = await db.find(table, query)
   let rlist = await r.toArray()
   return rlist
 }
+
+M.delete = async function (table, query) {
+  let r = await db.deleteMany(query)
+  return r.deleteCount == 1
+}
+
+/*
+M.list = async function (table, query) {
+  let r = await db.collection(table).find(query)
+  let rlist = await r.toArray()
+  return rlist
+}
+*/
