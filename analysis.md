@@ -15,9 +15,9 @@
 * 登入 User.login
 * 登出 User.logout
 * 開店 Shop.create
+* 店面清單 Shop.list
 * 訂購 Order.create
 * 報表 Order.list
-* 店面清單 Shop.list
 
 ## 使用個案 User Story
 

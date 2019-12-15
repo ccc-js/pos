@@ -4,27 +4,29 @@ const mongodb = require('mongodb')
 const MongoClient = mongodb.MongoClient
 const url = 'mongodb://localhost:27017'
 
+var db, client
+
 Db.open = async function (dbName) {
-  Db.client = await MongoClient.connect(url, { useUnifiedTopology: true, useNewUrlParser: true })
-  Db.db = await Db.client.db(dbName)
+  client = await MongoClient.connect(url, { useUnifiedTopology: true, useNewUrlParser: true })
+  db = await client.db(dbName)
 }
 
 Db.close = async function () {
-  await Db.client.close()
+  await client.close()
 }
 
 Db.insertOne = async function (table, obj) {
-  return Db.db.collection(table).insertOne(obj)
+  return db.collection(table).insertOne(obj)
 }
 
 Db.deleteMany = async function (table, query) {
-  return Db.db.collection(table).deleteMany(query)
+  return db.collection(table).deleteMany(query)
 }
 
 Db.findOne = async function (table, query) {
-  return Db.db.collection(table).findOne(query)
+  return db.collection(table).findOne(query)
 }
 
 Db.find = async function (table, query) {
-  return Db.db.collection(table).find(query)
+  return db.collection(table).find(query)
 }
