@@ -2,7 +2,7 @@
 const Order = module.exports = {}
 const M = require('./model')
 
-Order.create = async function(ctx) {
+Order.create = async function (ctx) {
   let user = ctx.session.user
   if (ctx.session.user != null) {
     const order = ctx.request.body
@@ -17,5 +17,4 @@ Order.create = async function(ctx) {
 }
 
 Order.read = async function (ctx) {
-
 }

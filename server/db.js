@@ -2,12 +2,10 @@
 const Db = module.exports = {}
 const mongodb = require('mongodb')
 const MongoClient = mongodb.MongoClient
-const ObjectID = mongodb.ObjectID
 const url = 'mongodb://localhost:27017'
-const dbName = 'pos'
 
-Db.open = async function () {
-  Db.client = await MongoClient.connect(url, {useUnifiedTopology: true, useNewUrlParser: true})
+Db.open = async function (dbName) {
+  Db.client = await MongoClient.connect(url, { useUnifiedTopology: true, useNewUrlParser: true })
   Db.db = await Db.client.db(dbName)
 }
 
@@ -16,17 +14,17 @@ Db.close = async function () {
 }
 
 Db.insertOne = async function (table, obj) {
-  return await Db.db.collection(table).insertOne(obj)
+  return Db.db.collection(table).insertOne(obj)
 }
 
 Db.deleteMany = async function (table, query) {
-  return await Db.db.collection(table).deleteMany(query)
+  return Db.db.collection(table).deleteMany(query)
 }
 
 Db.findOne = async function (table, query) {
-  return await Db.db.collection(table).findOne(query)
+  return Db.db.collection(table).findOne(query)
 }
 
 Db.find = async function (table, query) {
-  return await Db.db.collection(table).find(query)
+  return Db.db.collection(table).find(query)
 }
