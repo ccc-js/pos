@@ -22,11 +22,3 @@ Shop.list = async function(ctx) {
   ctx.status = 200
   ctx.body = r
 }
-
-Shop.report = async function(ctx) {
-
-}
-
-Shop.setting = async function(ctx) {
-
-}

@@ -32,7 +32,7 @@ M.read = async function (table, query) {
 }
 
 M.delete = async function (table, query) {
-  let r = await db.deleteMany(query)
+  let r = await db.deleteMany(table, query)
   return r.deleteCount == 1
 }
 
