@@ -8,7 +8,7 @@ var db, client
 
 Db.open = async function (dbName) {
   client = await MongoClient.connect(url, { useUnifiedTopology: true, useNewUrlParser: true })
-  db = await client.db(dbName)
+  db = client.db(dbName)
 }
 
 Db.close = async function () {

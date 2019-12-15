@@ -6,13 +6,13 @@ T.app = require('../../server/app')
 T.server = T.app.listen(3000)
 T.request = require('supertest').agent(T.server)
 
-T.start = async function() {
+T.start = async function () {
   await T.app.start()
   await T.app.clear()
 }
 
 T.stop = async function () {
-  await T.server.close();
+  await T.server.close()
   await T.app.stop()
 }
 
