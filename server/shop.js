@@ -4,11 +4,9 @@ const M = require('./model')
 
 Shop.create = async function(ctx) {
   let user = ctx.session.user
-  console.log('session.user=', user)
-  if (ctx.session.user != null) {
+  if (user != null) {
     const shop = ctx.request.body
-    let r = await M.insertOne('shops', shop)
-    if (r.insertedCount == 1) {
+    if (M.create('shop', shop)) {
       ctx.status = 200
       ctx.body = shop
       return
@@ -16,6 +14,13 @@ Shop.create = async function(ctx) {
   }
   ctx.status = 400
   ctx.body = "Error: 創建商店失敗，沒有登入不能創建商店!"
+}
+
+Shop.list = async function(ctx) {
+  const query = ctx.request.body
+  let r = await M.list('shop', query)
+  ctx.status = 200
+  ctx.body = r
 }
 
 Shop.report = async function(ctx) {

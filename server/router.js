@@ -2,7 +2,6 @@
 const router = module.exports = require('koa-router')()
 const User = require('./user')
 const Shop = require('./shop')
-const Market = require('./market')
 const Order = require('./order')
 const path = require('path')
 const fs = require('fs')
@@ -25,8 +24,7 @@ router
   .post('/user/logout', User.logout) // 登出
   .post('/shop/create', Shop.create) // 開店
   .post('/shop/setting', Shop.setting) // 設定: 可自訂商店產品
-  .post('/order/create', Order.create) // 訂購商品
+  .post('/shop/list', Shop.list) // 開店
   .post('/shop/report', Shop.report) // 商店訂單報表
-  .get('/market/shopList', Market.shopList) // 開店
-  .get('/market/search', Market.shopSearch) // 搜尋店面
+  .post('/order/create', Order.create) // 訂購商品
   .get('/public/(.*)', viewFile)

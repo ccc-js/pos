@@ -1,6 +1,5 @@
 // 伺服器主程式: 使用 MVC 架構。
 
-const V = require('./view')
 const M = require('./model')
 const router = require('./router')
 const logger = require('koa-logger')
@@ -32,7 +31,7 @@ app.stop = async function () { return await M.close() }
 app.clear = async function () { return await M.clear() } 
 
 async function main() {
-  await app.start() // M.open()
+  await app.start()
   app.listen(3000)
   console.log('Server run at http://localhost:3000')
 }

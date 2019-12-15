@@ -19,8 +19,7 @@
 * 設定 Shop.setting (可自訂商店產品)
 * 訂購 Order.create
 * 報表 Shop.report
-* 店面清單 Market.shopList
-* 搜尋店面 Market.shopSearch
+* 店面清單 Shop.list
 
 ## 使用個案 User Story
 

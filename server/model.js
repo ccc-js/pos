@@ -1,40 +1,33 @@
-// MVC 的 M: Model -- 所有資料庫存取都透過此模組。
-const M = module.exports = {}
-const mongodb = require('mongodb')
-const MongoClient = mongodb.MongoClient
-const ObjectID = mongodb.ObjectID
-const url = 'mongodb://localhost:27017'
-const dbName = 'pos'
-
-M.open = async function () {
-  M.client = await MongoClient.connect(url, {useUnifiedTopology: true, useNewUrlParser: true})
-  M.db = await M.client.db(dbName)
-}
+const M = module.exports = require('./db')
 
 M.clear = async function () {
-  await M.db.collection('users').remove({})
-  await M.db.collection('shops').remove({})
-  await M.db.collection('orders').remove({})
-  // await M.users.drop()
-  // await M.shops.drop()
+  await M.db.collection('user').deleteMany({})
+  await M.db.collection('shop').deleteMany({})
+  await M.db.collection('order').deleteMany({})
 }
 
-M.close = async function () {
-  await M.client.close()
+M.create = async function (table, record) {
+  let r = await M.db.collection(table).insertOne(record)
+  return r.insertCount == 1
 }
 
-M.insertOne = async function (table, obj) {
-  return await M.db.collection(table).insertOne(obj)
+M.update = async function (table, record) {
+  let r = await M.db.collection(table).updateOne(record)
+  return r.updateCount == 1
 }
 
-M.deleteMany = async function (table, query) {
-  return await M.db.collection(table).deleteMany(query)
+M.read = async function (table, id) {
+  let r = await M.db.collection(table).findOne({_id: id})
+  return r
 }
 
-M.findOne = async function (table, query) {
-  return await M.db.collection(table).findOne(query)
+M.delete = async function (table, id) {
+  let r = await M.db.collection(table).deleteOne({_id: id})
+  return r.deleteCount == 1
 }
 
-M.find = async function (table, query) {
-  return await M.db.collection(table).find(query)
+M.list = async function (table, query) {
+  let r = await M.db.collection(table).find(query)
+  let rlist = await r.toArray()
+  return rlist
 }

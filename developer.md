@@ -24,3 +24,17 @@
     * unit -- 單元測試
     * server -- 使用 supertest 進行 server 端程式碼測試
     * e2e -- 使用 puppeteer 模仿使用者在瀏覽器中的操作進行 e2e 測試
+
+## Server API
+
+1. 使用 CURD + L 操作命名，但不使用 RESTful
+    * C: Create, U: Update, R: Read, D: Delete
+    * L: List (可加查詢參數, ex: Shop.list(query))
+2. 除了 CURD 之外，可以使用《動作》命名方式
+    * 例如: User.login, User.signup, ...
+
+
+## 資料庫
+
+1. 表格名稱不加複數，例如:
+    * 用 shop 而不是 shops
