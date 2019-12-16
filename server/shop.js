@@ -3,10 +3,10 @@ const Shop = module.exports = {}
 const M = require('./model')
 
 Shop.create = async function (ctx) {
-  let user = ctx.session.user
+  const user = ctx.session.user
   if (user != null) {
     const shop = ctx.request.body
-    if (M.create('shop', shop)) {
+    if (await M.create('shop', shop)) {
       ctx.status = 200
       ctx.body = shop
       return
@@ -18,7 +18,7 @@ Shop.create = async function (ctx) {
 
 Shop.read = async function (ctx) {
   const query = ctx.request.body
-  let r = await M.read('shop', query)
+  const r = await M.read('shop', query)
   ctx.status = 200
   ctx.body = r
 }

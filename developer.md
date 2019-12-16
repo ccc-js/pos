@@ -7,7 +7,12 @@
 3. 採用 MongoDB 作為資料庫
 4. 使用 ES6 的 template string (模板字符串) 作為樣板引擎，不需另外安裝樣板引擎。
 5. 使用 ES6 的語法，但不使用 import , export 等新語法，不使用 babel 去轉換語法，也不使用 vue.js, angular.js, react.js 等前端框架。
-6. 使用 mocha + supertest + puppeteer 進行測試。 (TDD 視情況採用，不強求！))
+6. 使用 mocha + supertest + puppeteer 進行測試。 (TDD 視情況採用，不強求！)
+7. 使用 standardjs 語法，採用《駝峰式變數命名 + 行末無分號》的寫法。
+    * 可以安裝 https://marketplace.visualstudio.com/items?itemName=chenxsan.vscode-standardjs 檢查
+    * 還必須用 npm i standard -g 安裝對應語法套件。
+    * 可以安裝 https://marketplace.visualstudio.com/items?itemName=numso.prettier-standard-vscode 自動排版。
+
 
 ## 檔案結構
 

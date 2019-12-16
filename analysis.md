@@ -8,7 +8,7 @@
 * Model -- MVC 的 M: 資料庫存取者
 * Router -- MVC 的 C: 控制路由轉發
 * View -- MVC 的 V: 目前使用 koa-json 丟給前端，沒有獨立物件。
-* app -- server 主程式
+* App -- server 主程式
 
 ## 功能點 Function Point
 

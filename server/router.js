@@ -7,8 +7,8 @@ const path = require('path')
 const fs = require('fs')
 
 const viewFile = function (ctx) {
-  let fpath = path.join(__dirname, '../', ctx.path)
-  let ext = path.extname(ctx.path) // 取得副檔名
+  const fpath = path.join(__dirname, '../', ctx.path)
+  const ext = path.extname(ctx.path) // 取得副檔名
   ctx.type = ext // 設定傳回型態為《副檔名》對應的型態。
   ctx.body = fs.createReadStream(fpath) // 直接傳回該檔案串流
 }

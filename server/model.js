@@ -20,27 +20,27 @@ M.clear = async function () {
 
 // 新增
 M.create = async function (table, record) {
-  let r = await db.insertOne(table, record)
-  return r.insertCount === 1
+  const r = await db.insertOne(table, record)
+  return r.insertedCount === 1
 }
 
 // 修改
 M.update = async function (table, query, record) {
-  let r = await db.updateOne(table, query, record)
-  return r.updateCount === 1
+  const r = await db.updateOne(table, query, record)
+  return r.updatedCount === 1
 }
 
 // 查詢
-M.read = async function (table, query, opt) {
-  let r = await db.find(table, query)
+M.read = async function (table, query, opt = {}) {
+  const r = await db.find(table, query)
   if (opt.skip != null) r.skip(opt.skip)
   if (opt.limit != null) r.limit(opt.limit)
-  let rlist = await r.toArray()
+  const rlist = await r.toArray()
   return rlist
 }
 
 // 刪除
 M.delete = async function (table, query) {
-  let r = await db.deleteMany(table, query)
-  return r.deleteCount === 1
+  const r = await db.deleteMany(table, query)
+  return r.deletedCount === 1
 }
