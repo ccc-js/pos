@@ -26,5 +26,15 @@ describe('商店經營者 Owner', function () {
       const shops = T.asObj(r)
       T.ok(shops.length === 1)
     })
+    it('自己先購買物品成功', async () => {
+      await Owner.order(200)
+    })
+    it('查詢訂單成功', async () => {
+      const r = await T.post('/order/read', 200, {
+        name: Owner.shop.name
+      })
+      const orders = T.asObj(r)
+      T.ok(orders.length === 1)// snoopy自己訂snoopy之家的那一份訂單
+    })
   })
 })

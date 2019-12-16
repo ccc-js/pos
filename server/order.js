@@ -17,4 +17,16 @@ Order.create = async function (ctx) {
 }
 
 Order.read = async function (ctx) {
+  // const user = ctx.session.user
+  if (ctx.session.user != null) {
+    const query = {}
+    const shopName = ctx.request.body.name
+    query.shop = { name: shopName }
+    const r = await M.read('order', query)
+    ctx.status = 200
+    ctx.body = r
+  } else {
+    ctx.status = 400
+    ctx.body = 'Error: 查詢失敗，沒有登入或沒有開店或沒有訂單!'
+  }
 }

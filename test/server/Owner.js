@@ -33,6 +33,25 @@ const shop = Owner.shop = {
   ]
 }
 
+const order = Owner.order = {
+  shop: {
+    name: 'Snoopy之家'
+  },
+  items: [
+    {
+      product: '養狗一日',
+      addon: '含過夜',
+      price: 300
+    },
+    {
+      product: '養貓一日',
+      addon: '不含過夜',
+      price: 100
+    }
+  ],
+  total: 400
+}
+
 Owner.signup = async function () {
   await User.signup(200, user)
 }
@@ -49,4 +68,8 @@ Owner.readShop = async function () {
   const r = await T.post('/shop/read', 200, { name: 'Snoopy之家' })
   const shops = T.asObj(r)
   T.ok(shops.length === 1)
+}
+
+Owner.order = async function (status = 200) {
+  return T.post('/order/create', status, order)
 }
