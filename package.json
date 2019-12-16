@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "server": "node server/app",
+    "start": "node server/app",
     "test": "mocha test/**/*.js"
   },
   "repository": {

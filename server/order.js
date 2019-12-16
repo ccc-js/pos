@@ -3,11 +3,11 @@ const Order = module.exports = {}
 const M = require('./model')
 
 Order.create = async function (ctx) {
-  let user = ctx.session.user
+  const user = ctx.session.user
   if (ctx.session.user != null) {
     const order = ctx.request.body
     order.user = { name: user.name }
-    let r = await M.create('order', order)
+    const r = await M.create('order', order)
     ctx.status = 200
     ctx.body = { _id: r.insertedId }
   } else {

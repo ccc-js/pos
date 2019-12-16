@@ -3,7 +3,7 @@
 本專案將採用下列技術組合：
 
 1. 採用 Web 2.0 模式，以 fetch API 作為前後端 AJAX 通訊方法
-2. 採用 Koa 作為 Server 端框架，搭配 koa-static, koa-session, koa-body, koa-router 等周邊模組。
+2. 採用 Koa 作為 Server 端框架，搭配 koa-session, koa-body, koa-router 等周邊模組。
 3. 採用 MongoDB 作為資料庫
 4. 使用 ES6 的 template string (模板字符串) 作為樣板引擎，不需另外安裝樣板引擎。
 5. 使用 ES6 的語法，但不使用 import , export 等新語法，不使用 babel 去轉換語法，也不使用 vue.js, angular.js, react.js 等前端框架。

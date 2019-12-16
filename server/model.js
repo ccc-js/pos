@@ -31,8 +31,10 @@ M.update = async function (table, query, record) {
 }
 
 // 查詢
-M.read = async function (table, query) {
+M.read = async function (table, query, opt) {
   let r = await db.find(table, query)
+  if (opt.skip != null) r.skip(opt.skip)
+  if (opt.limit != null) r.limit(opt.limit)
   let rlist = await r.toArray()
   return rlist
 }

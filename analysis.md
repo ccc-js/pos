@@ -8,6 +8,7 @@
 * Model -- MVC 的 M: 資料庫存取者
 * Router -- MVC 的 C: 控制路由轉發
 * View -- MVC 的 V: 目前使用 koa-json 丟給前端，沒有獨立物件。
+* app -- server 主程式
 
 ## 功能點 Function Point
 
@@ -15,9 +16,9 @@
 * 登入 User.login
 * 登出 User.logout
 * 開店 Shop.create
-* 店面清單 Shop.list
+* 店面清單 Shop.read
 * 訂購 Order.create
-* 報表 Order.list
+* 訂單報表 Order.read
 
 ## 使用個案 User Story
 
