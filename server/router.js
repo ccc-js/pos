@@ -18,7 +18,7 @@ const home = function (ctx) {
 }
 
 router
-  .get('/', home) // 註冊
+  .get('/', home) // 首頁
   .post('/user/signup', User.signup) // 註冊
   .post('/user/login', User.login) // 登入
   .post('/user/logout', User.logout) // 登出
