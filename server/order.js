@@ -17,4 +17,21 @@ Order.create = async function (ctx) {
 }
 
 Order.read = async function (ctx) {
+  const name = ctx.session.user
+  if (name != null) {
+    const user = { user: name }
+    // console.log(user)
+    const r = await M.read('order', user)
+    // console.log(r)
+    if (r.length >= 1) {
+      ctx.status = 200
+      ctx.body = r
+    } else {
+      ctx.status = 400
+      ctx.body = 'Error: 查詢失敗，沒有購買商品無法查詢!'
+    }
+  } else {
+    ctx.status = 400
+    ctx.body = 'Error: 查詢失敗，沒有登入無法查詢!'
+  }
 }

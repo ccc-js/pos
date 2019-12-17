@@ -6,9 +6,9 @@
   "directories": {
     "test": "test"
   },
-  "scripts": { 
+  "scripts": {
     "start": "node server/app",
-    "test": "mocha test/server/UserTest.js && mocha test/server/OwnerTest.js && mocha test/server/BuyerTest.js "
+    "test": "mocha test/server/UserTest.js --timeout 15000 && mocha test/server/OwnerTest.js --timeout 15000 && mocha test/server/BuyerTest.js --timeout 15000"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
     "koa-logger": "^3.2.1",
     "koa-router": "^7.4.0",
     "koa-session": "^5.12.3",
+    "mocha": "^6.2.2",
     "mongodb": "^3.3.5",
     "supertest": "^4.0.2"
   }

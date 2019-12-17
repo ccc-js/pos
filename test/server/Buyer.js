@@ -41,3 +41,7 @@ Buyer.order = async function (status = 200) {
 Buyer.logout = async function () {
   return T.post('/user/logout', 200, user)
 }
+
+Buyer.readOrder = async function (status, user) {
+  return T.post('/order/read', status, user)
+}
