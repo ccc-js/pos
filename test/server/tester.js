@@ -3,11 +3,14 @@ const T = module.exports = {}
 T.ok = require('assert').ok
 T.app = require('../../server/app')
 
-T.server = T.app.listen(3000)
+T.server = T.app.listen(3001)
 T.request = require('supertest').agent(T.server)
 
 T.start = async function () {
   await T.app.start()
+}
+
+T.clear = async function () {
   await T.app.clear()
 }
 

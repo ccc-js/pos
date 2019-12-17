@@ -1,8 +1,9 @@
 const User = module.exports = {}
 const M = require('./model')
+const L = require('./lib')
 
 User.signup = async function (ctx) {
-  const user = ctx.request.body
+  const user = L.ctxParse(ctx)
   const dbUsers = await M.read('user', {
     name: user.name
   })
@@ -17,7 +18,7 @@ User.signup = async function (ctx) {
 }
 
 User.login = async function (ctx) {
-  const user = ctx.request.body
+  const user = L.ctxParse(ctx)
   const dbUsers = await M.read('user', {
     name: user.name
   })

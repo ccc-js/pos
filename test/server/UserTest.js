@@ -10,8 +10,10 @@ const snoopy = {
 describe('使用者', function () {
   before(async () => {
     await T.start()
+    await T.clear()
   })
   after(async () => {
+    await T.clear()
     await T.stop()
   })
   describe('申請帳號流程測試', function () {
