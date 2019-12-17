@@ -2,10 +2,10 @@ const ShopMain = {}
 
 ShopMain.html = `
 <div>
-  <button class="big" onclick="Pos.start()">新增訂單</button><br/><br/>
-  <button class="big" onclick="ShopMain.todayReport()">本日報表</button><br/><br/>
-  <button class="big" onclick="Report.start()">全部報表</button><br/><br/>
-  <button class="big" onclick="Setting.start()">商店設定</button><br/><br/>
+  <button class="big" onclick="Router.go('pos')">新增訂單</button><br/><br/>
+  <button class="big" onclick="Router.go('todayReport')">本日報表</button><br/><br/>
+  <button class="big" onclick="Router.go('report')">全部報表</button><br/><br/>
+  <button class="big" onclick="Router.go('setting')">商店設定</button><br/><br/>
 </div>
 `
 
