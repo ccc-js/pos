@@ -12,4 +12,4 @@
 * [開發者須知](developer.md)
 * [POS 專案的系統分析](analysis.md)
 * [目前的測試結果](test.md)
-
+* [行業動態](BussinessSense.md)
