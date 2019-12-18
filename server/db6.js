@@ -18,6 +18,15 @@ Db.close = async function () {
   await client.close()
 }
 
+Db.clear = async function (table) {
+  await db.collection(table).deleteMany({})
+}
+
+Db.index = async function (table, fields) {
+  await db.collection(table).createIndex(fields)
+}
+
+// MongoDB 內建操作簡化版
 Db.insertOne = async function (table, obj) {
   return db.collection(table).insertOne(obj)
 }

@@ -9,7 +9,7 @@ Logout.start = function () {
 }
 
 Logout.submit = async function () {
-  const msg = Ui.one('#msg')
+  const msg = fe6.one('#msg')
   if (loginUser == null) {
     msg.innerHTML = '您尚未登入！'
     return

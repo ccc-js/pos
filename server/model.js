@@ -1,9 +1,13 @@
 const M = module.exports = {}
-const db = require('./db')
+const db = require('./db6')
 
 // 連接並打開資料庫
 M.open = async function () {
-  return db.open('pos')
+  const r = await db.open('pos')
+  await db.index('user', { name: 1 })
+  await db.index('shop', { name: 1 })
+  await db.index('order', { 'shop.name': 1, 'user.name': 1 })
+  return r
 }
 
 // 關閉資料庫
@@ -13,9 +17,9 @@ M.close = async function () {
 
 // 清除所有資料
 M.clear = async function () {
-  await db.deleteMany('user', {})
-  await db.deleteMany('shop', {})
-  await db.deleteMany('order', {})
+  await db.clear('user')
+  await db.clear('shop')
+  await db.clear('order')
 }
 
 // 新增

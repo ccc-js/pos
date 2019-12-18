@@ -54,8 +54,8 @@ Pos.abort = function () {
 
 Pos.start = function () {
   Ui.show(Pos.html)
-  Ui.id('items').innerHTML = Pos.optionList(Shop.items)
-  Ui.id('addons').innerHTML = Pos.optionList(Shop.addons)
+  fe6.id('items').innerHTML = Pos.optionList(Shop.items)
+  fe6.id('addons').innerHTML = Pos.optionList(Shop.addons)
   Order = Pos.newOrder()
   Pos.calcPrice()
 }
@@ -72,10 +72,10 @@ Pos.submit = function () {
   Order.time = Date.now()
   Order.submitted = true
   Db.insert('Order', Order)
-  Ui.id('submit').disabled = 'disabled'
-  Ui.id('submit').innerHTML = '已送出'
-  Ui.id('abort').disabled = 'disabled'
-  Ui.id('newOrder').disabled = ''
+  fe6.id('submit').disabled = 'disabled'
+  fe6.id('submit').innerHTML = '已送出'
+  fe6.id('abort').disabled = 'disabled'
+  fe6.id('newOrder').disabled = ''
 }
 
 Pos.optionList = function (list) {
@@ -97,19 +97,19 @@ Pos.list = function (records) {
 }
 
 Pos.calcPrice = function () {
-  let [item, itemPrice] = Ui.id('items').value.split(':')
-  let [addon, addonPrice] = Ui.id('addons').value.split(':')
+  let [item, itemPrice] = fe6.id('items').value.split(':')
+  let [addon, addonPrice] = fe6.id('addons').value.split(':')
   let price = parseInt(itemPrice) + parseInt(addonPrice)
-  Ui.id('price').value = price
+  fe6.id('price').value = price
   return {item, addon, price}
 }
 
 Pos.addItem = function () {
   let {item, addon, price} = Pos.calcPrice()
-  let quantity = parseInt(Ui.id('quantity').value)
+  let quantity = parseInt(fe6.id('quantity').value)
   let record = {item: item, addon:addon, price: price, quantity: quantity}
   Order.records.push(record)
-  Ui.id('orderTableBody').innerHTML = Pos.list(Order.records)
+  fe6.id('orderTableBody').innerHTML = Pos.list(Order.records)
   Order.totalPrice += price * quantity
-  Ui.id('totalPrice').value = Order.totalPrice
+  fe6.id('totalPrice').value = Order.totalPrice
 }

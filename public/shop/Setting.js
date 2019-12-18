@@ -25,31 +25,31 @@ Setting.html = `
 
 Setting.start = function () {
   Ui.show(Setting.html)
-  Ui.id('shopName').value = Shop.name
-  Ui.id('shopAddress').value = Shop.address
-  Ui.id('shopTel').value = Shop.tel
-  Ui.id('items').value = JSON.stringify(Shop.items, null, 2)
-  Ui.id('addons').value = JSON.stringify(Shop.addons, null, 2)
-  Ui.id('comeToShop').checked = Shop.isComeToShop
-  Ui.id('mailToYou').checked = Shop.isMailToYou
-  Ui.id('goForYou').checked = Shop.isGoForYou
+  fe6.id('shopName').value = Shop.name
+  fe6.id('shopAddress').value = Shop.address
+  fe6.id('shopTel').value = Shop.tel
+  fe6.id('items').value = JSON.stringify(Shop.items, null, 2)
+  fe6.id('addons').value = JSON.stringify(Shop.addons, null, 2)
+  fe6.id('comeToShop').checked = Shop.isComeToShop
+  fe6.id('mailToYou').checked = Shop.isMailToYou
+  fe6.id('goForYou').checked = Shop.isGoForYou
 }
 
 Setting.save = function () {
   try {
-    Shop.name = Ui.id('shopName').value
-    Shop.address = Ui.id('shopAddress').value
-    Shop.tel = Ui.id('shopTel').value
-    Shop.items = JSON.parse(Ui.id('items').value)
-    Shop.addons = JSON.parse(Ui.id('addons').value)
-    Shop.isComeToShop = Ui.id('comeToShop').checked
-    Shop.isMailToYou = Ui.id('mailToYou').checked
-    Shop.isGoForYou = Ui.id('goForYou').checked
+    Shop.name = fe6.id('shopName').value
+    Shop.address = fe6.id('shopAddress').value
+    Shop.tel = fe6.id('shopTel').value
+    Shop.items = JSON.parse(fe6.id('items').value)
+    Shop.addons = JSON.parse(fe6.id('addons').value)
+    Shop.isComeToShop = fe6.id('comeToShop').checked
+    Shop.isMailToYou = fe6.id('mailToYou').checked
+    Shop.isGoForYou = fe6.id('goForYou').checked
   } catch (error) {
     alert('儲存失敗，請檢查格式是否有錯！\n', error)
     return
   }
   Db.save('Shop', Shop)
-  Ui.id('title').innerHTML = Shop.name
+  fe6.id('title').innerHTML = Shop.name
   alert('儲存成功！')
 }

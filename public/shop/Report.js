@@ -35,15 +35,15 @@ Report.start = function (arg={}) {
 }
 
 Report.showReport = function () {
-  Ui.id('reportBody').innerHTML = Report.orderListHtml(Report.arg)
-  Ui.id('dayTotal').innerHTML = Report.dayTotal + ''
+  fe6.id('reportBody').innerHTML = Report.orderListHtml(Report.arg)
+  fe6.id('dayTotal').innerHTML = Report.dayTotal + ''
 }
 
 Report.showDetail = function (id) {
   Ui.showPanel('detail')
   let order = Db.load('Order.'+id)
-  Ui.id('detailBody').innerHTML = Report.orderDetailHtml(order)
-  Ui.id('totalPrice').innerHTML = order.totalPrice
+  fe6.id('detailBody').innerHTML = Report.orderDetailHtml(order)
+  fe6.id('totalPrice').innerHTML = order.totalPrice
 }
 
 Report.orderListHtml = function (arg) {

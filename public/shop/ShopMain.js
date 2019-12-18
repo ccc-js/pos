@@ -2,10 +2,10 @@ const ShopMain = {}
 
 ShopMain.html = `
 <div>
-  <button class="big" onclick="Router.go('pos')">新增訂單</button><br/><br/>
-  <button class="big" onclick="Router.go('todayReport')">本日報表</button><br/><br/>
-  <button class="big" onclick="Router.go('report')">全部報表</button><br/><br/>
-  <button class="big" onclick="Router.go('setting')">商店設定</button><br/><br/>
+  <button class="big" onclick="fe6.go('pos')">新增訂單</button><br/><br/>
+  <button class="big" onclick="fe6.go('todayReport')">本日報表</button><br/><br/>
+  <button class="big" onclick="fe6.go('report')">全部報表</button><br/><br/>
+  <button class="big" onclick="fe6.go('setting')">商店設定</button><br/><br/>
 </div>
 `
 
@@ -22,7 +22,7 @@ ShopMain.start = function () {
   Shop = Db.load('Shop') || Shop
   Ui.show(ShopMain.html)
   Ui.title(Shop.name)
-  Ui.html('#leftMenu', ShopMain.leftMenuHtml)
+  fe6.html('#leftMenu', ShopMain.leftMenuHtml)
 }
 
 ShopMain.todayReport = function () {
