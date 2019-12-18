@@ -24,7 +24,7 @@ Signup.submit = async function () {
   const name = fe6.one('#name').value
   const password = fe6.one('#password').value
   const user = { name: name, password: password }
-  const r = await fe6.fetch('post', '/user/signup', user)
+  const r = await fe6.postJson('/user/signup', user)
   fe6.one('#msg').innerHTML = r.ok ? '註冊成功！' : '註冊失敗！'
   return false
 }

@@ -26,7 +26,7 @@ Login.submit = async function () {
   const name = fe6.one('#name').value
   const password = fe6.one('#password').value
   const user = { name: name, password: password }
-  const r = await fe6.fetch('post', '/user/login', user)
+  const r = await fe6.postJson('/user/login', user)
   fe6.one('#msg').innerHTML = r.ok ? '登入成功！' : '登入失敗！'
   if (r.ok) loginUser = user
   return false

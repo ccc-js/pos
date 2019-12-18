@@ -15,10 +15,7 @@ Logout.submit = async function () {
     return
   }
   msg.innerHTML = '登出中！'
-  const r = await window.fetch('/user/logout', {
-    body: JSON.stringify({ name: loginUser.name }),
-    method: 'POST'
-  })
+  const r = await fe6.postJson('/user/logout', { name: loginUser.name })
   if (r.ok) {
     msg.innerHTML = '登出成功！'
     loginUser = null

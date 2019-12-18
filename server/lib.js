@@ -1,5 +1,5 @@
 const L = module.exports = {}
-
+/*
 L.ctxParse = function (ctx) {
   const body = ctx.request.body
   if (typeof body === 'string') {
@@ -7,3 +7,4 @@ L.ctxParse = function (ctx) {
   }
   return body
 }
+*/

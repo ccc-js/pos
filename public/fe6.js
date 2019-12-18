@@ -1,9 +1,12 @@
 const fe6 = {}
 
-fe6.fetch = async function (method, path, obj) {
+fe6.postJson = async function (path, obj) {
   const r = await window.fetch(path, {
     body: JSON.stringify(obj),
-    method: method
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json'
+    }
   })
   return r
 }
@@ -44,3 +47,25 @@ fe6.each = function (path, f) {
 fe6.html = function (path, html) {
   fe6.each(path, (node) => { node.innerHTML = html })
 }
+
+fe6.showPanel = function (name) {
+  document.querySelectorAll('.panel').forEach((node)=>node.style.display='none')
+  fe6.id(name).style.display = 'block'
+}
+
+fe6.openNav = function () {
+  fe6.id('leftNav').style.width = '250px'
+}
+
+fe6.closeNav = function () {
+  fe6.id('leftNav').style.width = '0'
+}
+
+fe6.show = function (html) {
+  fe6.id('main').innerHTML = html
+}
+
+fe6.title = function (title) {
+  fe6.id('title').innerHTML = title
+}
+
