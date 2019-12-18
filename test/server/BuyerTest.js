@@ -22,5 +22,8 @@ describe('購買者 Buyer', function () {
     it('購買物品成功', async () => {
       await Buyer.order(200)
     })
+    it('查看購買的物品成功', async () => {
+      await Buyer.readOrder(200)
+    })
   })
 })
