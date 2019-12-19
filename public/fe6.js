@@ -54,18 +54,18 @@ fe6.showPanel = function (name) {
 }
 
 fe6.openNav = function () {
-  fe6.id('leftNav').style.width = '250px'
+  fe6.one('#leftNav').style.width = '250px'
 }
 
 fe6.closeNav = function () {
-  fe6.id('leftNav').style.width = '0'
+  fe6.one('#leftNav').style.width = '0'
 }
 
 fe6.show = function (html) {
-  fe6.id('main').innerHTML = html
+  fe6.one('#main').innerHTML = html
 }
 
 fe6.title = function (title) {
-  fe6.id('title').innerHTML = title
+  fe6.one('#title').innerHTML = title
 }
 

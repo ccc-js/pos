@@ -6,5 +6,5 @@ MyArea.html = `
 `
 
 MyArea.start = function () {
-  Ui.show(MyArea.html)
+  fe6.show(MyArea.html)
 }

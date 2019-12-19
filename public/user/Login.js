@@ -19,7 +19,7 @@ Login.html = `
 `
 
 Login.start = function () {
-  Ui.show(Login.html)
+  fe6.show(Login.html)
 }
 
 Login.submit = async function () {

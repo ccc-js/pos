@@ -5,5 +5,5 @@ Home.html = `
 `
 
 Home.start = function () {
-  Ui.show(Home.html)
+  fe6.show(Home.html)
 }

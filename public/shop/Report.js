@@ -23,27 +23,27 @@ Report.html = `
     <div>
       <label>總價:</label><label id="totalPrice"></label>
       <br/><br/>
-      <button onclick="Ui.showPanel('report')">回到報表</button>
+      <button onclick="fe6.showPanel('report')">回到報表</button>
     </div>
   </div>
 `
 
 Report.start = function (arg={}) {
   Report.arg = arg
-  Ui.show(Report.html)
+  fe6.show(Report.html)
   Report.showReport()
 }
 
 Report.showReport = function () {
-  fe6.id('reportBody').innerHTML = Report.orderListHtml(Report.arg)
-  fe6.id('dayTotal').innerHTML = Report.dayTotal + ''
+  fe6.one('#reportBody').innerHTML = Report.orderListHtml(Report.arg)
+  fe6.one('#dayTotal').innerHTML = Report.dayTotal + ''
 }
 
 Report.showDetail = function (id) {
-  Ui.showPanel('detail')
+  fe6.showPanel('detail')
   let order = Db.load('Order.'+id)
-  fe6.id('detailBody').innerHTML = Report.orderDetailHtml(order)
-  fe6.id('totalPrice').innerHTML = order.totalPrice
+  fe6.one('#detailBody').innerHTML = Report.orderDetailHtml(order)
+  fe6.one('#totalPrice').innerHTML = order.totalPrice
 }
 
 Report.orderListHtml = function (arg) {
@@ -68,7 +68,7 @@ Report.orderListHtml = function (arg) {
 Report.orderRowHtml = function (i, order) {
   let time = new Date(order.time)
   return `<tr>
-    <td><a href="#" onclick="Report.showDetail('${order.id}')">${i}</a></td>
+    <td><a onclick="Report.showDetail('${order.id}')">${i}</a></td>
     <td>${order.records[0].item} ...</td>
     <td class="number">${order.totalPrice}</td>
     <td>${Lib.dateToString(time)}</td>

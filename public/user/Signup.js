@@ -17,7 +17,7 @@ Signup.html = `
 `
 
 Signup.start = function () {
-  Ui.show(Signup.html)
+  fe6.show(Signup.html)
 }
 
 Signup.submit = async function () {

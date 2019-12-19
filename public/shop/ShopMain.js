@@ -20,8 +20,8 @@ ShopMain.leftMenuHtml = `
 
 ShopMain.start = function () {
   Shop = Db.load('Shop') || Shop
-  Ui.show(ShopMain.html)
-  Ui.title(Shop.name)
+  fe6.show(ShopMain.html)
+  fe6.title(Shop.name)
   fe6.html('#leftMenu', ShopMain.leftMenuHtml)
 }
 

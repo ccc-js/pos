@@ -5,7 +5,7 @@ Logout.html = `
 `
 
 Logout.start = function () {
-  Ui.show(Logout.html)
+  fe6.show(Logout.html)
 }
 
 Logout.submit = async function () {
