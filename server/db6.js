@@ -31,6 +31,10 @@ Db.insertOne = async function (table, obj) {
   return db.collection(table).insertOne(obj)
 }
 
+Db.insertMany = async function (table, list) {
+  return db.collection(table).insertMany(list)
+}
+
 Db.deleteMany = async function (table, query) {
   return db.collection(table).deleteMany(query)
 }

@@ -1,5 +1,5 @@
 const M = module.exports = {}
-const db = require('./db6')
+const db = M.db = require('./db6')
 
 // 連接並打開資料庫
 M.open = async function () {
