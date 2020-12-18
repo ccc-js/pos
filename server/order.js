@@ -8,6 +8,7 @@ Order.create = async function (ctx) {
     const order = ctx.request.body
     order.user = { name: user.name }
     const r = await M.create('order', order)
+    console.log(r, order)
     ctx.status = 200
     ctx.body = { _id: r.insertedId }
   } else {
@@ -22,6 +23,7 @@ Order.read = async function (ctx) {
     const user = { user: name }
     // console.log(user)
     const r = await M.read('order', user)
+    console.log(r)
     // console.log(r)
     if (r.length >= 1) {
       ctx.status = 200

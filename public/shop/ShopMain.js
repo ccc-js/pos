@@ -19,7 +19,7 @@ ShopMain.leftMenuHtml = `
 `
 
 ShopMain.start = function () {
-  Shop = Db.load('Shop') || Shop
+  Shop = Shop // Db.load('Shop') || 
   fe6.show(ShopMain.html)
   fe6.title(Shop.name)
   fe6.html('#leftMenu', ShopMain.leftMenuHtml)

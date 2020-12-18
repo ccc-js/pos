@@ -34,22 +34,23 @@ Report.start = function (arg={}) {
   Report.showReport()
 }
 
-Report.showReport = function () {
-  fe6.one('#reportBody').innerHTML = Report.orderListHtml(Report.arg)
+Report.showReport = async function () {
+  fe6.one('#reportBody').innerHTML = await Report.orderListHtml(Report.arg)
   fe6.one('#dayTotal').innerHTML = Report.dayTotal + ''
 }
 
 Report.showDetail = function (id) {
   fe6.showPanel('detail')
-  let order = Db.load('Order.'+id)
+  // let order = Db.load('Order.'+id)
+  let order = Db.read('Order.'+id)
   fe6.one('#detailBody').innerHTML = Report.orderDetailHtml(order)
   fe6.one('#totalPrice').innerHTML = order.totalPrice
 }
 
-Report.orderListHtml = function (arg) {
+Report.orderListHtml = async function (arg) {
   list = []
   let dayTotal = 0
-  let orders = Db.query('Order.', {sortBy:'time'})
+  let orders = await Db.query('Order.', {sortBy:'time'})
   let i = 0
   for (let order of orders) {
     let orderTime = new Date(order.time)
