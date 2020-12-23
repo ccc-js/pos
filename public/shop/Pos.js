@@ -72,7 +72,8 @@ Pos.submit = function () {
   }
   Order.time = Date.now()
   Order.submitted = true
-  Db.insert('Order', Order)
+  // Db.insert('Order', Order)
+  Db.create('Order', Order)
   fe6.one('#submit').disabled = 'disabled'
   fe6.one('#submit').innerHTML = '已送出'
   fe6.one('#abort').disabled = 'disabled'
